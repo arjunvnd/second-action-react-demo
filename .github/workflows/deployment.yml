@@ -1,0 +1,31 @@
+name: Run unit test cases
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 18
+      - name: Install node modules
+        run: npm ci
+      - name: Run unit test cases
+        run: npm run test
+  deploy:
+     runs-on: ubuntu-latest
+     steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 18
+      - name: Install node modules
+        run: npm ci
+      - name: Build application
+        run: npm run build
+      - name: Deploy applicaiton
+        run: echo "Deploying application...."

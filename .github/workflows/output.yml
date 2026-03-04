@@ -1,6 +1,5 @@
 name: Output
 on:
-    workflow_dispatch:
     repository_dispatch:
       types: [run-tests, deploy-to-prod]  # Optional filtering
 jobs:
@@ -9,3 +8,5 @@ jobs:
     steps:
       - name: Show the github context
         run: echo "${{ toJSON(github) }}"
+      - name: Print event type
+        run: echo "Event type: ${{ github.event.action }}"

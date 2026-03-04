@@ -1,5 +1,8 @@
 name: Output
-on: workflow_dispatch
+on:
+    workflow_dispatch:
+    repository_dispatch:
+      types: [run-tests, deploy-to-prod]  # Optional filtering
 jobs:
   info:
     runs-on: ubuntu-latest

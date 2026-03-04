@@ -9,4 +9,5 @@ jobs:
       - name: Show the github context
         run: echo "${{ toJSON(github) }}"
       - name: Print event type
-        run: echo "Event type: ${{ github.event.action }}"
+        run: |
+            echo "Event type: ${{ github.event.action }}"
